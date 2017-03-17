@@ -8,10 +8,13 @@
       <title>Winebuddy Profile</title>
 <!--Stylesheets-->
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link href="https://fonts.googleapis.com/icon?family=Roboto:300,400,500" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" type="text/css" rel="stylesheet">
       <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"> </script>
 </head>
 
 <body>
@@ -53,27 +56,27 @@
         <form class="col s12" id="userInfo" type="submit">
           <div class="row">
             <div class="input-field col s6">
-              <input id="userName" type="text" class="validate">
-                <label for="userName">First Name</label>
+              <input required id="userName" type="text" class="validate">
+                <label for="userName">Name</label>
             </div>
             <div class="input-field col s6">
-              <input id="userLocation" type="text" class="validate">
-                <label for="userLocation">Location</label>
+              <input required id="userLocation" type="text" pattern="[0-9]{5}" oninvalid="setCustomValidity('Please enter a valid US Zip Code.')" >
+                <label for="userLocation">Zip Code</label>
+            </div>
+          </div>
+          <div class="row">
+            <div  class="input-field col s12">
+              <input required id="userEmail" type="email" class="validate" oninvalid="setCustomValidity('Please enter a valid email address.')">
+                <label for="userEmail">Email</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="email" type="email" class="validate">
-                <label for="email">Email</label>
+              <input id="userBio" type="text" class="validate">
+                <label for="userBio">Short Bio</label>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="bio" type="text" class="validate">
-                <label for="bio">Short Bio</label>
-            </div>
-          </div>
-          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          <button id="submitProfile" class="btn waves-effect waves-light" type="submit" name="action">Submit
             
           </button>
         </form>
@@ -116,7 +119,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-        <p>&copy2017 Made by Keli Poole, Monica Jones, and Megha Iyer<a class="brown-text text-lighten-3"></a></p>
+        <p>&copy;2017 Made by Keli Poole, Monica Jones, and Megha Iyer<a class="brown-text text-lighten-3"></a></p>
       </div>
     </div>
   </footer>
@@ -124,5 +127,7 @@
   <script src="assets/javascript/materialize.js"></script>
     <script src="assets/javascript/init.js"></script>
   <script src="assets/javascript/fb.js"></script>
-<script type="text/javascript" src="assets/javascript/app.js"></script>
+<!-- <script type="text/javascript" src="assets/javascript/app.js"></script> -->
+<script type="text/javascript" src="assets/javascript/winebuddy.js"></script>
+
 </html>

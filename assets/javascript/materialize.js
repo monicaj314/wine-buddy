@@ -3013,6 +3013,7 @@ if (jQuery) {
           else {
             object.removeClass('valid');
             object.addClass('invalid');
+
           }
         }
       }

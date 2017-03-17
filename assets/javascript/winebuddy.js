@@ -1,13 +1,13 @@
   $(document).ready(function(){
-  // Initialize Firebase
+// Initialize Firebase
  var config = {
-    apiKey: "AIzaSyDkYT0szsogfH1E33uVYgKug3IIAjvw6r0",
-    authDomain: "wine-buddy-ef93b.firebaseapp.com",
-    databaseURL: "https://wine-buddy-ef93b.firebaseio.com",
-    storageBucket: "wine-buddy-ef93b.appspot.com",
-    messagingSenderId: "1034780569"
-  };
-  firebase.initializeApp(config);
+   apiKey: "AIzaSyD7IbZ-o2vDLWouSvl7WevDHXnqiUR1anQ",
+   authDomain: "winebuddy-91c37.firebaseapp.com",
+   databaseURL: "https://winebuddy-91c37.firebaseio.com",
+   storageBucket: "winebuddy-91c37.appspot.com",
+   messagingSenderId: "153805399239"
+ };
+ firebase.initializeApp(config);
 
 
 
@@ -20,18 +20,47 @@ var location;
 var winePreference =[];
 var categoryFilter = [];
 
-function submitWineType() {
+
+//saving user info to database - this needs additional work once the user object is fully defined in the DB
+
+$('#userLocation').bind('input propertychange focusout', function() {
+    $('#userLocation').val($(this).val());
+});
+
+function submitUserInfo() {
+//need an if statement here
 	name = $("#userName").val().trim();
 	email = $("#userEmail").val().trim();
 	location = $("#userLocation").val().trim();
-	winePreference = $("input:checked").map(function(){
-		return $(this).val();
-	}).get();
+	userBio = $("#userBio").val().trim();
+	
 
 	database.ref().push({
 			name: name,
 			email: email,
 			location: location,
+			userBio: userBio,
+		});
+	};
+
+
+
+
+function clearUserInfo() {
+	$("#userName").val('');
+	$("#userEmail").val('');
+	$("#userLocation").val('');
+	$("#userBio").val('');
+}
+
+
+//wine preferences must be saved to the user object in the DB and display properly in the user profile
+function submitWineType() {
+	winePreference = $("input:checked").map(function(){
+		return $(this).val();
+	}).get();
+
+	database.ref().push({
 			winePreference: winePreference
 		});
 	};
@@ -69,6 +98,12 @@ function getWineRecommendations() {
 	});
 }
 
+$("#submitProfile").on("click", function(event) {
+	event.preventDefault();
+	submitUserInfo();
+	clearUserInfo();
+	});
+
 $("#submitWineButton").on("click", function(event) {
 	event.preventDefault();
 	$('#wine-list-results').empty();
@@ -76,6 +111,3 @@ $("#submitWineButton").on("click", function(event) {
 	getWineRecommendations();
 	});
 });
-
-
-
