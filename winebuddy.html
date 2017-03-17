@@ -4,14 +4,34 @@
 	<meta charset="UTF-8">
 	<title>WineBuddy</title>
 	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="assets/css/materialize.css">
+	<link href="https://fonts.googleapis.com/icon?family=Roboto:400,500" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/style.css">
 	<!-- jquery -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<!-- Firebase -->
 	<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
 </head>
 <body>
-<header><h1>WineBuddy</h1></header>
-<h2>Find a wine buddy near you!</h2>
+<nav class="red darken-4" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo white-text">WineBuddy</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="index.html">Home</a></li>
+        <li><a href = "index2.html">Profile</a></li>
+        <li><a href = "index3.html">Wine Recommendations</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href = "index2.html">Profile</a></li>
+        <li><a href = "index3.html">Wine Recommendations</a></li>
+       
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i>Menu</i></a>
+
+    </div>
+  </nav>
 <form id="userInfo" type="submit">
 Name: <input id="userName" type="text" name="name">
 <br>
@@ -24,18 +44,71 @@ Location: <input id="userLocation" type="text" name="location">
 What kind of wine do you like? (Select all that apply)
 <br>
 <br>
-<div>
-Type
-<br>
-<ul>
-<li><input type="checkbox" value="124"> Red</li>
-<li><input type="checkbox" value="125"> White</li>
-<li><input type="checkbox" value="126"> Ros&eacute;</li>
-<li><input type="checkbox" value="123"> Sparkling</li>
-</ul>
 
+<dl class="dropdown"> 
+  <dt>
+    <a>
+      Red      
+    </a>
+    </dt>
+  
+    <dd>
+            <ul>
+            <form action="#" class="select-red">
+                <li>
+                    <input type="checkbox" id="light_and_fruity" value="610" /><label for="light_and_fruity">Light &amp; Fruity</label></li>
+                <li>
+                    <input type="checkbox" id="smooth_and_supple" value="611" /><label for="smooth_and_supple">Smooth &amp; Supple</label></li>
+                <li>
+                    <input type="checkbox" id="big_and_bold" value=“613” /><label for="big_and_bold">Big &amp; Bold</label></li>
+                <li>
+                    <input type="checkbox" id="earthy_and_spicy" value="612" /><label for="earthy_and_spicy">Earthy &amp; Spicy</label></li>
+				</form>
+            </ul>
+    </dd>
+</dl>
 
-</div>
+<dl class="dropdown"> 
+  <dt>
+    <a>
+      White      
+    </a>
+    </dt>
+  
+    <dd>
+            <ul>
+            <form action="#" class="select-white">
+                <li>
+                    <input type="checkbox" id="light_and_crisp" value="614" /><label for="light_and_crisp">Light &amp; Crisp</label></li>
+                <li>
+                    <input type="checkbox" id="fruity_and_smooth" value="615" /><label for="fruity_and_smooth">Fruity &amp; Smooth</label></li>
+                <li>
+                    <input type="checkbox" id="rich_and_creamy" value="616" /><label for="rich_and_creamy">Rich &amp; Creamy</label></li>
+				</form>
+            </ul>
+    </dd>
+</dl>
+
+<dl class="dropdown"> 
+  <dt>
+    <a>
+      Other      
+    </a>
+    </dt>
+  
+    <dd>
+            <ul>
+            <form action="#" class="select-other">
+                <li>
+                    <input type="checkbox" id="rose-wine" value="126" /><label for="rose-wine">Rose&acute;</label></li>
+                <li>
+                    <input type="checkbox" id="sparkling-wine" value="123" /><label for="parkling-wine">Sparkling</label></li>
+                <li>
+                    <input type="checkbox" id="dessert-wine" value="128" /><label for="dessert-wine">Dessert</label></li>
+				</form>
+            </ul>
+    </dd>
+</dl>
 <br>
 
 <!-- <div>
@@ -49,21 +122,6 @@ Region
 </ul>
 </div>
 <br> -->
-
-<div>
-Style
-<br>
-<ul>
-	<li><input type="checkbox" name="light-fruity" value="610"> Light &amp; Fruity </li>
-	<li><input type="checkbox" name="fruity-smooth" value="615"> Fruity &amp; Smooth</li>
-	<li><input type="checkbox" name="light-crisp" value="614"> Light &amp; Crisp</li>
-	<li><input type="checkbox" name="smooth-supple" value="611"> Smooth &amp; Supple</li>
-	<li><input type="checkbox" name="earthy-spicy" value="612"> Earthy &amp; Spicy</li>
-	<li><input type="checkbox" name="bold" value="613"> Big &amp; Bold</li>
-	<li><input type="checkbox" name="rich-creamy" value="616"> Rich &amp; Creamy</li>
-</ul>
-</div>
-<br>
 <!-- <div>
 Level of Wine Knowledge:
 <ul>
@@ -88,6 +146,8 @@ Level of Wine Knowledge:
 
 
 
+	<script src="assets/javascript/init.js"></script>
+	<script src="assets/javascript/materialize.js"></script>
 	<script src="assets/javascript/winebuddy.js"></script>
 </body>
 </html>

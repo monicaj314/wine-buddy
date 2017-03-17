@@ -9,6 +9,8 @@
   };
   firebase.initializeApp(config);
 
+
+
 //setting up database 
 
 var database = firebase.database();
@@ -36,6 +38,7 @@ function submitWineType() {
 
 
 
+
 //setting up ajax call
 
 function checkForMultipleWines() {
@@ -49,7 +52,7 @@ function checkForMultipleWines() {
 
 function getWineRecommendations() {
 	checkForMultipleWines();
-	var queryURL = 'https://services.wine.com/api/beta2/service.svc/json/catalog?filter=' + categoryFilter + '&size=10&sortBy=rating|descending+price|ascending&apikey=0bab0e3079cc594e3fdd6f1c925ce5f1'
+	var queryURL = "https://services.wine.com/api/beta2/service.svc/json/catalog?filter=" + categoryFilter + "&size=10&sortBy=rating|descending+price|ascending&apikey=0bab0e3079cc594e3fdd6f1c925ce5f1"
 
 	$.ajax({
       url: queryURL,
@@ -73,3 +76,6 @@ $("#submitWineButton").on("click", function(event) {
 	getWineRecommendations();
 	});
 });
+
+
+
